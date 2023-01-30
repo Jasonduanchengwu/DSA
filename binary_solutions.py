@@ -20,6 +20,12 @@ class b_solutions:
         
         return sum
 
+        # python method using list comprehension and in build func
+        # l = []
+        # l.append(a)
+        # l.append(b)
+        # return sum(l)
+
 if __name__ == "__main__":
     b=b_solutions()
     print(b.two_int_sum(3,4))
