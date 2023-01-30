@@ -32,6 +32,7 @@ class array_solutions:
 
         left = right = profit = 0
         while right < len(prices):
+            # update left index when price of next day is lower than previous
             if prices[right]<prices[left]:
                 left = right
             profit = max(profit, prices[right]-prices[left])
@@ -42,5 +43,5 @@ class array_solutions:
 if __name__ == "__main__":
     arr = array_solutions()
 
-    nums = [7,6,4,3,1]
-    print(arr.max_profit(nums))
+    # nums = [7,6,4,3,1]
+    # print(arr.max_profit(nums))
