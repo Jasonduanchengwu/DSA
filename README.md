@@ -1,1 +1,1 @@
-This is used to put most of the data structures that I have learnt to application
+This is to recap the data structures and algorithmns that I have learnt and some applications of them
