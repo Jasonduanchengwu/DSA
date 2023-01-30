@@ -36,8 +36,38 @@ class str_solutions:
 
         return length
 
+    def is_anagram(self, s: str, t: str) -> bool:
+        # fmt: off
+        """
+            Description:    Given two strings s,t find out if they are anagrams of eachother
+                            (anagram is a word that is formed by rearranging the letters in another word, 
+                            each letter is used exactly once)
+            s,t:            s,t are strings to check for anagram
+            return:         True if s,t are anagrams, False otherwise
+        """
+        # fmt: on
+
+        # check if length of s,t matches
+        length = len(s)
+        if length != len(t):
+            return False
+        
+        # only 26 characters in English letters
+        char = [0] * 26
+
+        for i in range(length):
+            # calculate occurances of each letter, 
+            # index in ascii is -97 for when a=0
+            char[ord(s[i])-97] +=1
+            char[ord(t[i])-97] -=1
+        
+        # True if all elements in char is 0 otherwise False
+        return all([True if ele == 0 else False for ele in char])
+
+
 if __name__ == "__main__":
     s = str_solutions()
 
-    test = "abba"
-    print(s.longest_substring_without_repeating_char(test))
+    s1 = "anagram"
+    s2 = "nagaran"
+    print(s.is_anagram(s1,s2))
