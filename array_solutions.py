@@ -12,13 +12,35 @@ class array_solutions:
         #fmt: on
 
         for i in range(len(nums)):
-            opp = target - nums[i]
-            if opp in nums:
-                if opp is not nums[i]:
-                    return [i,nums.index(opp)]
+            diff = target - nums[i]
+            # check if current num and the difference exits in nums
+            if diff in nums:
+                # checks if they are not the same element
+                if diff is not nums[i]:
+                    # i always front of index of diff due to iteration
+                    return [i,nums.index(diff)]
+
+    def max_profit(self, prices: list[int]) -> int:
+        #fmt: off
+        """
+            Description:    Given an array of prices of an item on each day, 
+                            find the maximum profit if you were to buy one day and sell on a future date.             
+            prices:         list of prices on different days
+            return:         Maximum profit in int
+        """
+        #fmt: on
+
+        left = right = profit = 0
+        while right < len(prices):
+            if prices[right]<prices[left]:
+                left = right
+            profit = max(profit, prices[right]-prices[left])
+            right+=1
+
+        return profit
 
 if __name__ == "__main__":
     arr = array_solutions()
 
-    # nums = [2,7,11,15]
-    # print(arr.two_sum(nums, 22))
+    nums = [7,6,4,3,1]
+    print(arr.max_profit(nums))
