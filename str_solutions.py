@@ -64,7 +64,21 @@ class str_solutions:
         # True if all elements in char is 0 otherwise False
         return all([True if ele == 0 else False for ele in char])
 
-
+    def is_palindrome(self, s: str)->bool:
+        """
+            Description:    A phrase is a palindrome if, after converting all uppercase letters into lowercase letters 
+                            and removing all non-alphanumeric characters, 
+                            it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+            s:              Input string
+            return:         whether string is a palindrome
+        """
+        s = s.lower()
+        res = ""
+        for i in range(len(s)):
+            if 97<=ord(a[i])<=122 or 48 <=ord(a[i])<=57:
+                res += a[i]
+        return res == res[::-1]
+        
 if __name__ == "__main__":
     s = str_solutions()
 
