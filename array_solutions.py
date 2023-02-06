@@ -40,8 +40,24 @@ class array_solutions:
 
         return profit
 
+    def magitude_of_ele_sum_and_digit_sum(self, nums: list[int]) -> int:
+        """
+            Descriptions:   Given an positive Int array nums, 
+                            return the absolute difference of the elements sum and the digit sums
+            nums:           array of Integers
+            return:         Absolute difference of the elements sum and the digit sums
+        """
+        digit_sum = 0
+        for ele in nums:
+            # only perform list comprehension when the element is more than 10
+            if float(ele)/10>=1.0:
+                digit_sum += sum([int(d) for d in str(ele)])
+            else:
+                digit_sum += ele
+        return abs(sum(nums) - digit_sum)
+
 if __name__ == "__main__":
     arr = array_solutions()
 
-    # nums = [7,6,4,3,1]
-    # print(arr.max_profit(nums))
+    nums = [7,16,4,23,1]
+    print(arr.magitude_of_ele_sum_and_digit_sum(nums))
