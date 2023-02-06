@@ -74,9 +74,9 @@ class str_solutions:
         """
         s = s.lower()
         res = ""
-        for i in range(len(s)):
-            if 97<=ord(a[i])<=122 or 48 <=ord(a[i])<=57:
-                res += a[i]
+        for ele in s:
+            if 97<=ord(ele)<=122 or 48 <=ord(ele)<=57:
+                res += ele
         return res == res[::-1]
         
 if __name__ == "__main__":
