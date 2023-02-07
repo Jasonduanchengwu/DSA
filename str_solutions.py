@@ -78,6 +78,28 @@ class str_solutions:
             if 97<=ord(ele)<=122 or 48 <=ord(ele)<=57:
                 res += ele
         return res == res[::-1]
+    
+    def max_balanced_substring(self, s: str) -> int:
+        """
+            Description:    Given a balanced string s containing "L" and "R", determine the maxed number of balanced substrings in s
+            s:              balanced String
+            return:         max number of balanced substrings
+        """
+
+        s_list = []
+        start_index = 0
+        char_dict = {
+            "L" : 0,
+            "R" : 0
+        }
+        for i in range(len(s)):
+            char_dict[s[i]] += 1
+            if char_dict["L"] == char_dict["R"] and char_dict[s[i]] is not 0:
+                s_list.append(s[start_index:i+1])
+                start_index = i+1
+                char_dict["L"] =0
+                char_dict["R"]=0
+        return len(s_list)
         
 if __name__ == "__main__":
     s = str_solutions()
