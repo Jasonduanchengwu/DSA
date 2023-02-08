@@ -101,6 +101,20 @@ class str_solutions:
                 char_dict["R"]=0
         return len(s_list)
         
+    def count_divisible_digits(self, num: int) -> int:
+        """
+            Descriptions:   Given a integer num, count the number of divisiable digits in num by num
+            num:            Integer given
+            return:         number of divisiable digits
+        """
+        # List comprehension to list of int digits
+        digits = [int(d) for d in str(num)]
+        div_count = 0
+        for ele in digits:
+            if num%ele is 0:
+                div_count +=1
+        return div_count
+
 if __name__ == "__main__":
     s = str_solutions()
 
