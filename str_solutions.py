@@ -115,6 +115,40 @@ class str_solutions:
                 div_count +=1
         return div_count
 
+    def decode_messages(self, keys: str, message: str) -> str:
+        """
+            Descriptions:   Given a set of keys and message, translate the message into human readables english
+            keys:           keys representing increasing alphabetical letters
+            message:        message to be decoded
+            return:         decoded message
+        """
+        # remove repeat letters and spaces for keys
+        def remove_repeat_chars(s:str):
+            # list for keys
+            char = []
+            s = s.replace(" ","")
+            for ele in s:
+                ele = ele.lower()
+                # only register once per letter
+                if ele not in char:
+                    char.append(ele)
+            return char
+
+        # key and value space is unchanged
+        decode_dict = {
+            " ": " "
+        }
+
+        # register values for keys in alphabetical order
+        for index, ele in enumerate(remove_repeat_chars(keys)):
+            decode_dict[ele] = chr(index+97)
+
+        decoded_message =""
+        # decode message
+        for ele in message:
+            decoded_message += decode_dict[ele]
+        return decoded_message
+
 if __name__ == "__main__":
     s = str_solutions()
 
