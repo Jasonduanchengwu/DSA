@@ -56,6 +56,27 @@ class array_solutions:
                 digit_sum += ele
         return abs(sum(nums) - digit_sum)
 
+    def remove_duplicate(self, nums: list[int]) -> tuple[int,list[int]]:
+        """
+            Descriptions:   Given an array of integers, remove any duplicate integers. In-space O(1) memory complexity
+            nums:           Array of integers
+            return:         both the count of non-duplicated element and the new array
+        """
+        temp = None
+        count = 0
+        length = len(nums)
+        for i in range(length):
+            # remove duplicates
+            if nums[i] == temp:
+                nums[i] = None   
+            else:
+                count += 1
+                temp = nums[i]
+        # remove None in list
+        for i in range(length-count):
+            nums.remove(None)
+        return count, nums
+
 if __name__ == "__main__":
     arr = array_solutions()
 
