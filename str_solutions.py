@@ -149,6 +149,14 @@ class str_solutions:
             decoded_message += decode_dict[ele]
         return decoded_message
 
+    def length_of_last_word(self, s: str)->int:
+        """
+            Descriptions:   Given a string, return the length of the last word in the string
+            s:              String given
+            return:         length of the last word 
+        """
+        return len(s.split()[-1])
+        
 if __name__ == "__main__":
     s = str_solutions()
 
