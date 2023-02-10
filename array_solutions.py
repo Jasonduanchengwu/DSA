@@ -77,6 +77,21 @@ class array_solutions:
             nums.remove(None)
         return count, nums
 
+    def remove_element(self, nums: list[int], val: int)-> tuple[int, list[int]]:
+        """
+            Descriptions:   Given a list of int, remove all occurance of val 
+                            and return the number of val removed and the new list
+            nums:           A list of integers
+            val:            The value to be removed
+            return:         The number of val removed and the new list
+        """
+        count = 0
+        length = len(nums)
+        while val in nums:
+            nums.remove(val)
+            count +=1
+        return length - count, nums
+
 if __name__ == "__main__":
     arr = array_solutions()
 
