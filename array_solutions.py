@@ -91,7 +91,15 @@ class array_solutions:
             nums.remove(val)
             count +=1
         return length - count, nums
-
+    
+    def length_of_last_word(self, s: str)->int:
+        """
+            Descriptions:   Given a string, return the length of the last word in the string
+            s:              String given
+            return:         length of the last word 
+        """
+        return len(s.split()[-1])
+        
 if __name__ == "__main__":
     arr = array_solutions()
 
