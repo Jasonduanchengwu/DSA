@@ -156,7 +156,20 @@ class str_solutions:
             return:         length of the last word 
         """
         return len(s.split()[-1])
-        
+    
+    def plus_one(self, digits: list[int])->list[int]:
+        """
+            Descriptions:   produce a list of ints that was the comprehension of digits plus one
+            digits:         list of int
+            return          plus one list of int
+        """
+        whole = ""
+        for ele in digits:
+            whole+=str(ele)
+        whole = str(int(whole)+1)
+        digits = [int(d) for d in whole]
+        return digits
+
 if __name__ == "__main__":
     s = str_solutions()
 

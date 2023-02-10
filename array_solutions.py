@@ -91,14 +91,19 @@ class array_solutions:
             nums.remove(val)
             count +=1
         return length - count, nums
-    
-    def length_of_last_word(self, s: str)->int:
+
+    def plus_one(self, digits: list[int])->list[int]:
         """
-            Descriptions:   Given a string, return the length of the last word in the string
-            s:              String given
-            return:         length of the last word 
+            Descriptions:   produce a list of ints that was the comprehension of digits plus one
+            digits:         list of int
+            return          plus one list of int
         """
-        return len(s.split()[-1])
+        whole = ""
+        for ele in digits:
+            whole+=str(ele)
+        whole = str(int(whole)+1)
+        digits = [int(d) for d in whole]
+        return digits
         
 if __name__ == "__main__":
     arr = array_solutions()
