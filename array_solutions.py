@@ -124,6 +124,29 @@ class array_solutions:
             result = result ^ nums[i]
         return result
 
+    def match_count(self, dict: list[list[str]], key: str, val: str)->int:
+        """
+            Description:    Given a 2d array that contains a list of list of values with different values 
+                            in indexes represented by different corresponding keys. 
+                            Find the number of matches given the key and val. The keys are type, color and name
+            dict:           2d array
+            key:            The key to search
+            val:            The value to search
+            return:         The number of matches
+        """
+        if key == "type":
+            key = 0
+        elif key == "color":
+            key = 1
+        else:
+            key = 2
+        
+        m=0
+        for ele in dict:
+            if ele[key] is val:
+                m +=1
+        return m
+        
 if __name__ == "__main__":
     arr = array_solutions()
 
