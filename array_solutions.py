@@ -104,7 +104,26 @@ class array_solutions:
         whole = str(int(whole)+1)
         digits = [int(d) for d in whole]
         return digits
+    
+    def xor_operation(self, n: int, s: int)->int:
+        """
+            Description:    Given two int parameter: n and s, find the xor outcome of nums, 
+                            where nums is an array of size n and nums[i] = s + 2*i
+            n:              size of array
+            s:              starting displacement
+            return:         XOR outcome
+        """
+        # populating nums
+        nums = [0]*n
+        for i in range(n):
+            nums[i] = s + 2*i
         
+        # perform XOR
+        result = nums[0]
+        for i in range(1,n):
+            result = result ^ nums[i]
+        return result
+
 if __name__ == "__main__":
     arr = array_solutions()
 
