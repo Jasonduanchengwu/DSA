@@ -156,19 +156,32 @@ class str_solutions:
             return:         length of the last word 
         """
         return len(s.split()[-1])
-    
-    def plus_one(self, digits: list[int])->list[int]:
+
+    def sort_sentence(self, s: str) -> str:
         """
-            Descriptions:   produce a list of ints that was the comprehension of digits plus one
-            digits:         list of int
-            return          plus one list of int
+            Description:    Given a unsorted string with index appended to the back of each word, 
+                            sort the string to its intended sentence
+            s:              String given
+            return:         Sorted string
         """
-        whole = ""
-        for ele in digits:
-            whole+=str(ele)
-        whole = str(int(whole)+1)
-        digits = [int(d) for d in whole]
-        return digits
+        # create array structure to utilize index
+        s = s.split()
+        result = [""]*len(s)
+
+        # place the corresponding substrings into their index location
+        for ele in s:
+            # index provided starts from 1, 
+            # substring without index and includes space
+            result[int(ele[-1]-1)] = ele[:-1] + " "
+
+        # saves memory
+        s = ""
+        for ele in result:
+            # turn back to string
+            s += ele
+
+        # return without last space
+        return s[:-1]
 
 if __name__ == "__main__":
     s = str_solutions()

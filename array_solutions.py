@@ -146,7 +146,7 @@ class array_solutions:
             if ele[key] is val:
                 m +=1
         return m
-        
+
 if __name__ == "__main__":
     arr = array_solutions()
 
