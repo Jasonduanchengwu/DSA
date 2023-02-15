@@ -188,6 +188,7 @@ class str_solutions:
             Description:    Given a string and c no of words to truncate, return modified string
             s:              String to be modified
             s:              Count of words to include in modified string
+            return:         Modified String
         """
         # split word to count len of c no of word with space, sum them and subtract the last space
         return s[:sum([len(d)+1 for d in s.split()[:c]])-1]
