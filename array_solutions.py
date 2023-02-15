@@ -147,7 +147,7 @@ class array_solutions:
                 m +=1
         return m
 
-    def arithmeticTriplets(self, nums: list[int], diff: int) -> int:
+    def arithmetic_triplets(self, nums: list[int], diff: int) -> int:
         """
             Descriptions:   Given an ascending array and a difference where 
                             indexes i<j<k and nums[j]-nums[i] = diff and nums[k]-nums[j] = diff
@@ -158,7 +158,7 @@ class array_solutions:
 
         # the second set of diff exist only if first set of diff exist
         return sum(n-diff in nums and n-diff*2 in nums for n in nums)
-        
+
 if __name__ == "__main__":
     arr = array_solutions()
 
