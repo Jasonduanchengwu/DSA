@@ -183,6 +183,15 @@ class str_solutions:
         # return without last space
         return s[:-1]
 
+    def truncate_sentences(self, s: str, c: int) -> str:
+        """
+            Description:    Given a string and c no of words to truncate, return modified string
+            s:              String to be modified
+            s:              Count of words to include in modified string
+        """
+        # split word to count len of c no of word with space, sum them and subtract the last space
+        return s[:sum([len(d)+1 for d in s.split()[:c]])-1]
+    
 if __name__ == "__main__":
     s = str_solutions()
 
