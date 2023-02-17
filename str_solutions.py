@@ -193,6 +193,15 @@ class str_solutions:
         # split word to count len of c no of word with space, sum them and subtract the last space
         return s[:sum([len(d)+1 for d in s.split()[:c]])-1]
     
+    def count_asterisk(self, s: str) -> int:
+        """
+            Description:    Given a string s, count the number of "*" in the substrings 
+                            that is separated by "|", skipping every alternative substring
+            s:              String given
+            return:         Number of asterisks
+        """
+        return sum(d.count("*") for d in s.split("|")[::2])
+    
 if __name__ == "__main__":
     s = str_solutions()
 
