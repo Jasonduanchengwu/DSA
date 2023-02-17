@@ -202,6 +202,21 @@ class str_solutions:
         """
         return sum(d.count("*") for d in s.split("|")[::2])
     
+    def to_lowercase(self, s: str) -> str:
+        """
+            Description:    Given a string s, convert all letters to lowercase. With not using .lower() solution
+            s:              String given
+            return:         Lowercase string
+        """
+        # python lib
+        # return s.lower()
+
+        for ele in s:
+            # ascii numbers of uppercase letters
+            if 64<ord(ele)<91:
+                s=s.replace(ele,chr(ord(ele)+25))
+        return s
+
 if __name__ == "__main__":
     s = str_solutions()
 
