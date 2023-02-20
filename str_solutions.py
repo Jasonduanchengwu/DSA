@@ -216,7 +216,17 @@ class str_solutions:
             if 64<ord(ele)<91:
                 s=s.replace(ele,chr(ord(ele)+25))
         return s
-
+    
+    def is_list_string_equal(self, list1: list[str], list2: list[str])->bool:
+        """
+            Description:    Given 2 lists of strings, determine if both list has the same string if the elements are combined together
+            list1:          list of string
+            list2:          list of string
+            return          True if both string is equal, False otherwise
+        """
+        # concatenate both list of string, then compare
+        return "".join(list1)=="".join(list2)
+    
 if __name__ == "__main__":
     s = str_solutions()
 
