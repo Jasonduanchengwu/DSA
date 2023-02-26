@@ -227,6 +227,25 @@ class str_solutions:
         # concatenate both list of string, then compare
         return "".join(list1)=="".join(list2)
     
+    def is_pangram(self, s: str) -> bool:
+        """
+            Description:    Given a string s, determine if s is a pangram 
+                            (all letters of the english alphabet appears at least once)
+            s:              Given string
+            return:         True if pangram otherwise False
+        """
+        # length must be more than 26 for all letters to appear at least 1
+        if len(s)<26:
+            return False
+        
+        # check all letters
+        for i in range(26):
+            # return False when 1 letter does not exist
+            if s.__contains__(chr(i+97)) is False:
+                return False
+        # else all existed
+        return True
+    
 if __name__ == "__main__":
     s = str_solutions()
 
