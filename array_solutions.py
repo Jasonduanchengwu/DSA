@@ -159,6 +159,20 @@ class array_solutions:
         # the second set of diff exist only if first set of diff exist
         return sum(n-diff in nums and n-diff*2 in nums for n in nums)
 
+    def left_right_difference(self, nums: list[int]) -> list[int]:
+        """
+            Descriptions:   Given an array of int, calculate the difference between the left subarray 
+                            and the right subarray at every element position
+            nums:           List of numbers
+            return:         The difference array
+        """
+        length = len(nums)
+        output = [0]*length
+        for i in range(length):
+            # for absolute values
+            output[i] = abs(sum(nums[:i])-sum(nums[i+1:]))
+        return output
+    
 if __name__ == "__main__":
     arr = array_solutions()
 
