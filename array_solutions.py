@@ -199,6 +199,16 @@ class array_solutions:
         grid = [sorted(row) for row in grid]
         return sum(max(ele) for ele in list[zip(*grid)])
     
+    def max_prod_diff_pairs(self, n: list[int]) -> int:
+        """
+            Descriptions:   find the max difference between the product of two pairs
+            n:              a list of int
+            return:         the max difference
+        """
+        # sort to have min pair be first two index and max pair to be last two
+        n=sorted(n)
+        return n[-1]*n[-2]-n[0]*n[1]
+    
 if __name__ == "__main__":
     arr = array_solutions()
 
