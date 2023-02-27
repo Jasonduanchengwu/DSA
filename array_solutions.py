@@ -187,6 +187,18 @@ class array_solutions:
         students.sort()
         return sum(abs(x-y) for x,y in zip(seats,students))
     
+    def sum_max_row_value(self, grid: list[list[int]]) -> int:
+        """
+            Description:    Given a m x n grid, find the max of the maxes of every row and remove all maxes
+                            until grid is empty
+            grid:           two-dimensional array
+            return:         sum of maxes
+        """
+        # sort every row, that way every comparison of ith ele in all tuple of every row will be paired
+        # can simply get the max of same index ele on every row and sum the result
+        grid = [sorted(row) for row in grid]
+        return sum(max(ele) for ele in list[zip(*grid)])
+    
 if __name__ == "__main__":
     arr = array_solutions()
 
