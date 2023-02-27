@@ -219,7 +219,8 @@ class str_solutions:
     
     def is_list_string_equal(self, list1: list[str], list2: list[str])->bool:
         """
-            Description:    Given 2 lists of strings, determine if both list has the same string if the elements are combined together
+            Description:    Given 2 lists of strings, determine if both list has the same string 
+                            if the elements are combined together
             list1:          list of string
             list2:          list of string
             return          True if both string is equal, False otherwise
@@ -245,6 +246,22 @@ class str_solutions:
                 return False
         # else all existed
         return True
+    
+    def max_nest_parentheses_depth(self, s: str) -> int:
+        """
+            Description:    Given a string of mathematical equation, find out the maximum nesting depth of the parentheses
+                            given parentheses are always closed
+            s:              Given string
+            return:         Maximum nesting depth of the parentheses
+        """
+        max_depth = 0
+        for i,ele in enumerate(s):
+            # when the ele is not '(' or ')'
+            if ele is not '(' or ele is not ')':
+                # locate the inner most ele
+                # take the max of difference of the left side of the ele and difference of the right side of the ele
+                max_depth = max(max_depth, s[:i].count(')')-s[:i].count('('), s[i+1:].count(')')-s[i+1:].count('('))
+        return max_depth
     
 if __name__ == "__main__":
     s = str_solutions()
