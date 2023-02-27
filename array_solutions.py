@@ -173,6 +173,20 @@ class array_solutions:
             output[i] = abs(sum(nums[:i])-sum(nums[i+1:]))
         return output
     
+    def min_moves_seats(self, seats: list[int], students: list[int]) -> int:
+        """
+            Descriptions:   Given two arrays which represents positions of the students and seats,
+                            if each seat can only hold one student, determine the minimum moves of students
+                            to make sure every students has a seat
+            seats:          postions of seats
+            students:       postions of students
+            return:         num of moves
+        """
+        # min moves would be the sum of the abs diff of seats and students in order
+        seats.sort()
+        students.sort()
+        return sum(abs(x-y) for x,y in zip(seats,students))
+    
 if __name__ == "__main__":
     arr = array_solutions()
 
