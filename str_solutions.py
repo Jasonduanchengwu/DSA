@@ -293,7 +293,7 @@ class str_solutions:
         """
         b=[]
         # only count the rods that have more than or equal to 3 rings, then get distinct color
-        c=[b.append(ele) for ele in [rings[i-1]+rings[i] for i in range(len(rings)) if rings[1::2].count(rings[i])>=3] if ele not in b]
+        c=[b.append(ele) for ele in [rings[i-1:i+1] for i in range(len(rings)) if rings[1::2].count(rings[i])>=3] if ele not in b]
         # return rods count that have all three color
         return len([ele for ele in "".join(b)[1::2] if "".join(b)[1::2].count(ele) == 3])//3
     
