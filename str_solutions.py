@@ -263,6 +263,18 @@ class str_solutions:
                 max_depth = max(max_depth, s[:i].count(')')-s[:i].count('('), s[i+1:].count(')')-s[i+1:].count('('))
         return max_depth
     
+    def count_consistent_string(self, allowed: str, words: list[str]) -> int:
+        """
+            Description:    Given some allowed letters, determine how many of the words are consistent
+                            (consistency refers to if a string contains only letters that are allowed)
+            allowed:        Letters allowed
+            words:          list of words
+            return:         count of consistent words
+        """
+        for ele in allowed:
+            words = [w.replace(ele,"") for w in words]
+        return words.count("")
+    
 if __name__ == "__main__":
     s = str_solutions()
 
