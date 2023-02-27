@@ -283,6 +283,20 @@ class str_solutions:
         """
         return " ".join([ele[::-1] for ele in s.split()])
     
+    def count_rods(self, rings: str) -> int:
+        """
+            Descriptions:   Given 10 rods represented by [0-9], and three color {'R','G','B'}, 
+                            determine count of rods that have all three colors
+            rings:          Given string that has Color+Rod+... 
+                            EX. "R3G2B1" represents Red ring on rod 3, Green ring on rod 2, Blue ring on rod 1
+            return:         count of rods that have all three color rings
+        """
+        b=[]
+        # only count the rods that have more than or equal to 3 rings, then get distinct color
+        c=[b.append(ele) for ele in [rings[i-1]+rings[i] for i in range(len(rings)) if rings[1::2].count(rings[i])>=3] if ele not in b]
+        # return rods count that have all three color
+        return len([ele for ele in "".join(b)[1::2] if "".join(b)[1::2].count(ele) == 3])//3
+    
 if __name__ == "__main__":
     s = str_solutions()
 
