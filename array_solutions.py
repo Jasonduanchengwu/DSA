@@ -209,6 +209,16 @@ class array_solutions:
         n=sorted(n)
         return n[-1]*n[-2]-n[0]*n[1]
     
+    def sort_people(self, names: list[str], heights: list[int]) -> list[str]:
+        """
+            Descriptions:   find list of names in descending height
+            names:          list of names
+            heights:        list of heights
+            return:         list of ordered names
+        """
+        # zips names,height, sort base on height in descending and return list of names
+        return [ele[0] for ele in sorted([ele for ele in zip(names,heights)], key=lambda x:x[1], reverse= True)]
+    
 if __name__ == "__main__":
     arr = array_solutions()
 
