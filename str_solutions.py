@@ -275,6 +275,14 @@ class str_solutions:
             words = [w.replace(ele,"") for w in words]
         return words.count("")
     
+    def reverse_words(self, s: str) -> str:
+        """
+            Descriptions:   Reverse all words in string s
+            s:              Given string
+            return:         string of reversed words
+        """
+        return " ".join([ele[::-1] for ele in s.split()])
+    
 if __name__ == "__main__":
     s = str_solutions()
 
