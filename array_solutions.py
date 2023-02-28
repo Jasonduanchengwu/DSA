@@ -219,6 +219,18 @@ class array_solutions:
         # zips names,height, sort base on height in descending and return list of names
         return [ele[0] for ele in sorted([ele for ele in zip(names,heights)], key=lambda x:x[1], reverse= True)]
     
+    def flip_and_invert_image(self, image: list[list[int]]) -> list[list[int]]:
+        """
+            Descriptions:   flip and invert pixel values of an image
+            image:          binary matrix n x m with 0 or 1 pixel values
+            return:         n x m matrix
+        """
+        for i in range(len(image)):
+            image[i]=image[i][::-1]
+            for j in range(len(image[i])):
+                image[i][j]=int(not(image[i][j]))
+        return image
+    
 if __name__ == "__main__":
     arr = array_solutions()
 
