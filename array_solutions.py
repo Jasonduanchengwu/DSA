@@ -256,6 +256,22 @@ class array_solutions:
         nums.remove(m)
         return (m-1)*(max(nums)-1)
     
+    def pivot_integer(self, n: int)-> int:
+        """
+            Descriptions:   find the int where sum <= element == sum >= element smaller than n
+                            Ex. if n=8, 1+2+3+4+5+6 = 6+7+8 = 21
+            n:              int
+            return:         int
+        """
+        # TODO: could be improved with simplified equations
+        res=[]
+        # create a list of integers from 1 to n
+        [res.append(i) for i in range(1,n+1)]
+        # include only int where sum before == sum after
+        r = [ele for i,ele in enumerate(res) if sum(res[:i])==sum(res[i+1:])]
+        if r == []: return -1
+        else: return r[0]
+
 if __name__ == "__main__":
     arr = array_solutions()
 
