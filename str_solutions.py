@@ -305,6 +305,41 @@ class str_solutions:
         """
         return len([ele for ele in patterns if ele in s])
     
+    def remove_outermost_parentheses(self, s: str) -> str:
+        """
+            Descriptions:   remove outermost parentheses
+            s:              string
+            return:         modified string
+        """
+        count,stack,res = 0, "", ""
+        for ele in s:
+            stack+=ele
+            if ele == "(": count+=1
+            else: count-=1
+            if count==0:
+                # remove outer paren in stack and empty stack
+                res+=stack[1:-1]
+                stack=""
+        return res
+
+    def replace_digits(self, s: str) -> str:
+        """
+            Descriptions:   Given a string s with digits in odd positions, 
+                            change it into a letter based on the previous letter on even positions
+                            Ex. "a2c4b1" should turn out to be "accgbc" as 2 is changed to c as c is 2 away, etc
+            s:              string given
+            return:         modified string
+        """
+        # list allows for the values to be modified during loop
+        s=list(s)
+        for i, ele in enumerate(s):
+            if i%2==0:
+                temp = ord(ele)
+            else:
+                # uses ascii
+                s[i]=chr(temp+ord(s[i])-48)
+        return "".join(s)
+    
 if __name__ == "__main__":
     s = str_solutions()
 

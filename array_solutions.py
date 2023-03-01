@@ -231,25 +231,7 @@ class array_solutions:
                 # using bool
                 image[i][j]=int(not(image[i][j]))
         return image
-    
-    def remove_outermost_parentheses(self, s: str) -> str:
-        """
-            Descriptions:   remove outermost parentheses
-            s:              string
-            return:         modified string
-        """
-        count,stack,res = 0, "", ""
-        for ele in s:
-            stack+=ele
-            if ele == "(":
-                count+=1
-            else:
-                count-=1
-            if count==0:
-                # remove outer paren in stack and empty stack
-                res+=stack[1:-1]
-                stack=""
-        return res
+
 
 if __name__ == "__main__":
     arr = array_solutions()
