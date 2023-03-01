@@ -297,6 +297,14 @@ class str_solutions:
         # return rods count that have all three color
         return len([ele for ele in "".join(b)[1::2] if "".join(b)[1::2].count(ele) == 3])//3
     
+    def num_of_pattern(self, patterns: list[str], s: str) -> int:
+        """
+            Descriptions:   find the number of patterns in s
+            patterns:       potential substrings in s
+            s:              string
+        """
+        return len([ele for ele in patterns if ele in s])
+    
 if __name__ == "__main__":
     s = str_solutions()
 
