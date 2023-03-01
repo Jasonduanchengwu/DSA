@@ -232,7 +232,20 @@ class array_solutions:
                 image[i][j]=int(not(image[i][j]))
         return image
 
-
+    def diagonal_sum(self, mat: list[list[int]]) -> int:
+        """
+            Descriptions:   find the summation of the both the diagonals of the matrix
+            mat:            a n x n matrix
+            return:         the sum
+        """
+        length, res, j = len(mat[0]), 0, 0
+        for i in range(length):
+            # when n is odd in a nxn matrix, the middle row number will only be added once
+            if length%2==1 and i==length//2: res+=mat[i][j]
+            else: res=res+mat[i][j]+mat[i][-(j+1)]
+            j+=1
+        return res
+    
 if __name__ == "__main__":
     arr = array_solutions()
 
