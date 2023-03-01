@@ -246,7 +246,7 @@ class array_solutions:
             j+=1
         return res
     
-    def maxProduct(self, nums: list[int]) -> int:
+    def max_product(self, nums: list[int]) -> int:
         """
             Descriptions:   find the maximum product between 2 (elements-1)
             nums:           array of int
@@ -272,6 +272,27 @@ class array_solutions:
         if r == []: return -1
         else: return r[0]
 
+    def subset_xor_sum(self, nums: list[int]) -> int:
+        """
+            Descriptions:   find the XOR sum of all the possible subsets in the list
+            nums:           list of int
+            return:         the total sum
+        """
+        # TODO: could be improved with OR bitwise calculations
+        x,stack,res = len(nums), [],0
+        masks = [1 << i for i in range(x)]
+        # creating a list of all possible sublists
+        for i in range(1 << x):
+            stack.append([ss for mask, ss in zip(masks, nums) if i & mask])
+        # perform XOR on all sublists elements and sum them
+        for i in stack:
+            t,r=0,0
+            for j in i:
+                r=j^t
+                t=r
+            res+=r
+        return res
+    
 if __name__ == "__main__":
     arr = array_solutions()
 
