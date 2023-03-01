@@ -246,6 +246,16 @@ class array_solutions:
             j+=1
         return res
     
+    def maxProduct(self, nums: list[int]) -> int:
+        """
+            Descriptions:   find the maximum product between 2 (elements-1)
+            nums:           array of int
+            return:         max product
+        """
+        m=max(nums)
+        nums.remove(m)
+        return (m-1)*(max(nums)-1)
+    
 if __name__ == "__main__":
     arr = array_solutions()
 
