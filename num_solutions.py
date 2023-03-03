@@ -3,8 +3,8 @@ class num_solutions:
         # fmt: off
         """
             Descriptions:   find the number of matches played with n number of competitors
-                            (Even n competitors will be paired two each and 
-                            the winner advances to the next rounds, odd n competitors will have 1 person advance randomly
+                            (Even n competitors will be paired in two
+                            odd n competitors will have 1 person advance randomly
                             the rest of the even pairs compete)
             n:              number of competitors
             return:         num of matches
