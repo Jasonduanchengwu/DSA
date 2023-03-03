@@ -1,5 +1,6 @@
 class num_solutions:
     def num_of_matches(self, n: int)->int:
+        # fmt: off
         """
             Descriptions:   find the number of matches played with n number of competitors
                             (Even n competitors will be paired two each and 
@@ -8,6 +9,7 @@ class num_solutions:
             n:              number of competitors
             return:         num of matches
         """
+        # fmt: on
         match = 0
         while n > 1:
             if n%2 == 1:
@@ -20,9 +22,9 @@ class num_solutions:
 
     def num_of_common_factors(self, a: int, b: int) -> int:
         """
-            Descriptions:   find the number of common factors of a and b
-            a,b:            two int
-            return:         the number
+            Descriptions:    find the number of common factors of a and b
+            a,b:             two int
+            return:          the number
         """
         def smaller_int(a: int, b: int) -> int:
             if a>=b:
