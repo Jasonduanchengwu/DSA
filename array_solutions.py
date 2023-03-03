@@ -302,6 +302,18 @@ class array_solutions:
         # turn list of nums into a string of all digits, then put every char into a list
         return [int(ele) for ele in "".join([""+str(ele) for ele in nums])]
     
+    def largest_altitude(self, gain: list[int]) -> int:
+        """
+            Descriptions:   find the max altitude reached if starting altitue is 0
+            gain:           list of changes of altitude
+            return:         max altitude reached
+        """
+        max_alt,cur_alt=0, 0
+        for ele in gain:
+            cur_alt+=ele
+            max_alt=max(max_alt,cur_alt)
+        return max_alt
+
 if __name__ == "__main__":
     arr = array_solutions()
 
