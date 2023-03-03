@@ -293,6 +293,15 @@ class array_solutions:
             res+=r
         return res
     
+    def separate_digits(self, nums: list[int]) -> list[int]:
+        """
+            Descriptions:   find the list of digits in the list of numbers given
+            nums:           list of numbers given
+            return:         list of digits
+        """
+        # turn list of nums into a string of all digits, then put every char into a list
+        return [int(ele) for ele in "".join([""+str(ele) for ele in nums])]
+    
 if __name__ == "__main__":
     arr = array_solutions()
 
