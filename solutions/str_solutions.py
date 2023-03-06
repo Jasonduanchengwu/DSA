@@ -351,7 +351,16 @@ class str_solutions:
             if ele==ele[::-1]:
                 return ele
         return ""
-
+    
+    def reverse_prefix(self, word: str, char: str) -> str:
+        """
+            Descriptions:   find the string that has the reversed prefix before char
+            word:           word to operate on
+            char:           last character of prefix
+            return:         string with reversed prefix
+        """
+        return word[:word.index(char)+1][::-1]+word[word.index(char)+1:] if char in word else word
+    
 if __name__ == "__main__":
     s = str_solutions()
 
