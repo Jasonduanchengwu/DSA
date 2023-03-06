@@ -340,6 +340,18 @@ class str_solutions:
                 s[i]=chr(temp+ord(s[i])-48)
         return "".join(s)
     
+    def first_palindrome(self, words: list[str]) -> str:
+        """
+            Description:    find the first palindrome in the list
+                            (palindrome reads the same forward and backward)
+            words:          list of strings
+            return:         first palindrome, "" if no palindrome
+        """
+        for ele in words:
+            if ele==ele[::-1]:
+                return ele
+        return ""
+
 if __name__ == "__main__":
     s = str_solutions()
 
