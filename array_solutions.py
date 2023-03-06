@@ -325,6 +325,16 @@ class array_solutions:
         # take the maximum of the maginitude of difference of x,y from the points, sum the differences
         return sum([max(abs(points[i+1][0]-points[i][0]), abs(points[i+1][1]-points[i][1])) for i in range(len(points)-1)])
 
+    def num_of_largest_square(self, rects: list[list[int]]) -> int:
+        """
+            Descriptions:   find the number of largest squares in a list of rectangles
+                            (rect = [length, width])
+            rects:          list of rect
+            return:         num of largest squares
+        """
+        rects=[min(rect) for rect in rects]
+        return rects.count(max(rects))
+
 if __name__ == "__main__":
     arr = array_solutions()
 
