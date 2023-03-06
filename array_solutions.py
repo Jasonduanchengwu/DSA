@@ -314,6 +314,17 @@ class array_solutions:
             max_alt=max(max_alt,cur_alt)
         return max_alt
 
+    def min_time_to_visit_all_points(self, points: list[list[int]]) -> int:
+        """
+            Descriptions:   find the minimum time to visit all nodes in the order of the given array
+                            ,given each travel takes one unit of time
+            points:         list of coordinates
+            return:         time taken to visit all nodes
+        """
+        # max maginitude of difference of x,y from the points is the minimum time needed to travel from one point to another
+        # take the maximum of the maginitude of difference of x,y from the points, sum the differences
+        return sum([max(abs(points[i+1][0]-points[i][0]), abs(points[i+1][1]-points[i][1])) for i in range(len(points)-1)])
+
 if __name__ == "__main__":
     arr = array_solutions()
 
