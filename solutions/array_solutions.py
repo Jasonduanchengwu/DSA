@@ -335,6 +335,22 @@ class array_solutions:
         rects=[min(rect) for rect in rects]
         return rects.count(max(rects))
 
+    def min_operations(self, nums: list[int]) -> int:
+        """
+            Descriptions:   find the total increments for the list to be ascending
+                            (Ex. [1,3,3,2,4] -> [1,3,4,5,6])
+            nums:           list of int
+            return:         total increment
+        """
+        count=0
+        for i in range(len(nums)-1):
+            if nums[i]>=nums[i+1]:
+                # save increment as nums[i+1] changes
+                increment=nums[i]-nums[i+1]+1
+                nums[i+1]+=increment
+                count+=increment
+        return count
+
 if __name__ == "__main__":
     arr = array_solutions()
 
