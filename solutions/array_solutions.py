@@ -351,6 +351,21 @@ class array_solutions:
                 count+=increment
         return count
 
+    def vowel_strings(self, words: list[str], left: int, right: int) -> int:
+        """
+            Descriptions:   count the number of words that starts and ends with a vowel (a,e,i,o,u) from within the left and right index
+            words:          list of words
+            left:           left index
+            right:          right index
+            return:         number of matched words
+        """
+        vowels= {"a", "e", "i", "o", "u"}
+        count=0
+        for word in words[left:right+1]:
+            if word[0] in vowels and word[-1] in vowels:
+                count+=1
+        return count
+    
 if __name__ == "__main__":
     arr = array_solutions()
 
