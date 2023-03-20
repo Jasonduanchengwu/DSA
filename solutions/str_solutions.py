@@ -361,6 +361,18 @@ class str_solutions:
         """
         return word[:word.index(char)+1][::-1]+word[word.index(char)+1:] if char in word else word
     
+    def halves_are_alike(self, s: str) -> bool:
+        """
+            Descriptions:   determine if the first half and second halfs contains the same number of vowels
+                            (vowels includes uppercase too)
+            s:              even length string
+            return:         True or False
+        """
+        vowels = "aeiouAEIOU"
+        half = len(s)//2
+        first, second = list(s[:half]), list(s[half:])
+        return len([ele for ele in first if ele in vowels])-len([ele for ele in second if ele in vowels])==0
+
 if __name__ == "__main__":
     s = str_solutions()
 
