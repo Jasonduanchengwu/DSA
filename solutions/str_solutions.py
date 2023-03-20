@@ -373,6 +373,15 @@ class str_solutions:
         first, second = list(s[:half]), list(s[half:])
         return len([ele for ele in first if ele in vowels])-len([ele for ele in second if ele in vowels])==0
 
+    def square_is_white(self, coordinates: str) -> bool:
+        """
+            Descriptions:   determine the color of the chess grid
+            coordinates:    coordinate of the grid to determine Ex. a1
+            return:         True if white, False otherwise
+        """          
+        # the pattern is that when the both are even or odd then it is black
+        return False if ord(coordinates[0])%2==ord(coordinates[1])%2 else True
+
 if __name__ == "__main__":
     s = str_solutions()
 
