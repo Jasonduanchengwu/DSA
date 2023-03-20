@@ -33,6 +33,23 @@ class num_solutions:
         # trading slightly lower TC for readability
         return len([i for i in range(1,smaller_int(a,b)+1) if a%i==0 and b%i==0])
     
+    def self_dividing_numbers(self, left: int, right: int) -> list[int]:
+        """
+            Descriptions:   find a list of self-dividing numbers with the range from left to right
+                            (Ex. 128 is self dividing as 128%1==0, 128%2==0, 128%8==0)
+            left:           left boundary
+            right:          right boundary
+            return:         list of self dividing numbers
+        """
+        res = []
+        for num in range(left, right+1):
+            # skip over numbers that contains 0, as you cannot divide by 0
+            if "0" in  str(num):
+                continue
+            if all(num%int(ele)==0 for ele in str(num) if ele is not "0"):
+                res.append(num)
+        return res
+    
 if __name__ == "__main__":
     no = num_solutions()
     n = 7
