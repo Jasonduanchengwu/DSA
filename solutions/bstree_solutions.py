@@ -37,6 +37,30 @@ class BSTree:
         else:
             self.val=val
 
+    def inorderTraversal(self, root=None)->str[int]:
+        """
+            description:    inorder Traversal of BTree
+            root:           current node of the tree
+            returns:        return the list of values in Tree inorder
+        """
+        return self.inorderTraversal(root.left)+[root.val]+self.inorderTraversal(root.right) if root else []
+    
+    def preorderTraversal(self, root =None)->str[int]:
+        """
+            description:    preorder Traversal of BTree
+            root:           current node of the tree
+            returns:        return the list of values in Tree preorder
+        """
+        return [root.val]+self.preorderTraversal(root.left)+self.preorderTraversal(root.right) if root else []
+    
+    def postorderTraversal(self, root =None)->str[int]:
+        """
+            description:    postorder Traversal of BTree
+            root:           current node of the tree
+            returns:        return the list of values in Tree postorder
+        """
+        return self.postorderTraversal(root.left)+self.postorderTraversal(root.right)+[root.val] if root else []
+    
     def check_height(self,root)->int:
         # fmt: off
         """
